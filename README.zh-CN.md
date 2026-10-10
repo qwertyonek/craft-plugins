@@ -34,11 +34,23 @@
 
 ---
 
+## ⚡ 预编译插件一键下载（无需安装 Rust）
+
+> [!TIP]
+> **动态设计师与后期制作人员无需手动编译！** 直接下载下方预编译好的 `.wasm` 文件，即可直接在 EffectCraft 中加载使用。
+
+| 插件名称 | 运行架构 | 体积 | 最新版本 | 直接下载 |
+| :--- | :---: | :---: | :---: | :--- |
+| **Craft Glow** | WASM API v1 | `33 KB` | `v1.0.0` | [⬇️ **下载 `craft_glow.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_glow.wasm) |
+
+---
+
+
 ## 🧩 插件套件
 
 | 插件名称 | 对应 AE 插件 | 分类 | 状态 | 功能亮点 |
 | :--- | :--- | :--- | :---: | :--- |
-| **`craft-glow`** | *Deep Glow* | `Stylize` / `Glow` | 🔨 `开发中` | 物理精确的平方反比衰减 ($1/r^2$)、辉光阈值截断、光晕色差边缘分离、HDR 色调映射。 |
+| **`craft-glow`** | *Deep Glow* | `Stylize` / `Glow` | ✅ `已完成` | 物理精确的平方反比衰减 ($1/r^2$)、辉光阈值截断、光晕色差边缘分离、HDR 色调映射。 |
 | **`craft-chromatic`** | *Quick Chromatic* | `Distort` / `Stylize` | 📋 `计划中` | 径向与线性 RGB 色彩分离、光学透镜色散曲线、单通道模糊、边缘暗角衰减控制。 |
 | **`craft-camera-shake`** | *Sapphire S_Shake* | `Distort` / `Transform` | 📋 `计划中` | 程序化多频 Simplex 噪声、微震颤与旋转晃动、防黑边自适应缩放、运动模糊。 |
 | **`craft-displacer`** | *Displacer Pro* | `Distort` | 📋 `计划中` | 高级次像素置换映射、色散偏移、旋转与缩放贴图控制、抗锯齿坐标映射。 |

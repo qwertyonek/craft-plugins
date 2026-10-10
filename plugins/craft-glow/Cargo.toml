@@ -1,0 +1,12 @@
+[package]
+name = "craft-glow"
+version = "0.1.0"
+edition = "2024"
+authors = ["qwertyonek"]
+license = "MIT"
+description = "Physically accurate inverse-square glow with chromatic halo for EffectCraft"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]

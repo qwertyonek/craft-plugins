@@ -34,11 +34,23 @@ Inspired by industry-standard After Effects plugins (*Deep Glow*, *Quick Chromat
 
 ---
 
+## ⚡ Instant Download (Ready `.wasm` Binaries)
+
+> [!TIP]
+> **No Rust or compilation needed for artists!** Simply download the pre-compiled `.wasm` file below and load it directly into EffectCraft.
+
+| Plugin | Architecture | Size | Latest Release | Direct Download |
+| :--- | :---: | :---: | :---: | :--- |
+| **Craft Glow** | WASM API v1 | `33 KB` | `v1.0.0` | [⬇️ **Download `craft_glow.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_glow.wasm) |
+
+---
+
+
 ## 🧩 Plugin Suite
 
 | Plugin | AE Counterpart | Category | Status | Highlights |
 | :--- | :--- | :--- | :---: | :--- |
-| **`craft-glow`** | *Deep Glow* | `Stylize` / `Glow` | 🔨 `Building` | Physically accurate inverse-square ($1/r^2$) falloff, luminance threshold, chromatic aberration halo, HDR tinting. |
+| **`craft-glow`** | *Deep Glow* | `Stylize` / `Glow` | ✅ `Ready` | Physically accurate inverse-square ($1/r^2$) falloff, luminance threshold, chromatic aberration halo, HDR tinting. |
 | **`craft-chromatic`** | *Quick Chromatic* | `Distort` / `Stylize` | 📋 `Planned` | Radial & linear RGB channel split, optical lens dispersion curves, per-channel blur, edge-falloff vignetting. |
 | **`craft-camera-shake`** | *Sapphire S_Shake* | `Distort` / `Transform` | 📋 `Planned` | Procedural multi-frequency Simplex noise, rotational/translational micro-jitter, auto-scale edge padding, motion blur. |
 | **`craft-displacer`** | *Displacer Pro* | `Distort` | 📋 `Planned` | Advanced subpixel displacement mapping, chromatic shift, rotation/scale mapping, anti-aliased coordinates. |
