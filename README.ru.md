@@ -41,7 +41,8 @@
 
 | Плагин | Архитектура | Размер | Версия | Прямая ссылка |
 | :--- | :---: | :---: | :---: | :--- |
-| **Craft Glow** | WASM API v1 | `33 KB` | `v1.0.0` | [⬇️ **Скачать `craft_glow.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_glow.wasm) |
+| **Craft Glow** | WASM API v1 | `32 KB` | `v1.0.0` | [⬇️ **Скачать `craft_glow.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_glow.wasm) |
+| **Craft Chromatic** | WASM API v1 | `37 KB` | `v1.0.0` | [⬇️ **Скачать `craft_chromatic.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_chromatic.wasm) |
 
 ---
 
@@ -50,11 +51,11 @@
 
 | Плагин | Аналог в AE | Категория | Статус | Особенности |
 | :--- | :--- | :--- | :---: | :--- |
-| **`craft-glow`** | *Deep Glow* | `Stylize` / `Glow` | ✅ `Готов` | Физически корректное затухание по обратному квадрату ($1/r^2$), порог яркости, хроматическая аберрация в ореоле, HDR тонирование. |
-| **`craft-chromatic`** | *Quick Chromatic* | `Distort` / `Stylize` | 📋 `Запланирован` | Радиальное и линейное разделение RGB каналов, оптическая дисперсия линзы, размытие каналов, виньетирование по краям. |
-| **`craft-camera-shake`** | *Sapphire S_Shake* | `Distort` / `Transform` | 📋 `Запланирован` | Процедурный многочастотный шум Симплекс, микро-дрожание и вращение, авто-зум для предотвращения черных краев, motion blur. |
-| **`craft-displacer`** | *Displacer Pro* | `Distort` | 📋 `Запланирован` | Продвинутая карта смещения с субпиксельным сглаживанием, хроматический сдвиг, управление вращением и масштабом. |
-| **`craft-halftone-dither`** | *Retro / Halftone* | `Stylize` / `Retro` | 📋 `Запланирован` | Матричный упорядоченный дизеринг (Bayer 4×4 и 8×8), растровые точки CMYK/RGB, палитры ретро-консолей (GameBoy, CGA, Pico-8). |
+| **`craft-glow`** | *Deep Glow* | `by qwertyonek` | ✅ `Готов` | Физически корректное затухание по обратному квадрату ($1/r^2$), порог яркости, хроматическая аберрация в ореоле, HDR тонирование. |
+| **`craft-chromatic`** | *Quick Chromatic* | `by qwertyonek` | ✅ `Готов` | Радиальное (дисперсия линзы) и линейное (призма) разделение RGB каналов, субпиксельная билинейная интерполяция, размытие каймы. |
+| **`craft-camera-shake`** | *Sapphire S_Shake* | `by qwertyonek` | 📋 `Запланирован` | Процедурный многочастотный шум Симплекс, микро-дрожание и вращение, авто-зум для предотвращения черных краев, motion blur. |
+| **`craft-displacer`** | *Displacer Pro* | `by qwertyonek` | 📋 `Запланирован` | Продвинутая карта смещения с субпиксельным сглаживанием, хроматический сдвиг, управление вращением и масштабом. |
+| **`craft-halftone-dither`** | *Retro / Halftone* | `by qwertyonek` | 📋 `Запланирован` | Матричный упорядоченный дизеринг (Bayer 4×4 и 8×8), растровые точки CMYK/RGB, палитры ретро-консолей (GameBoy, CGA, Pico-8). |
 
 ---
 

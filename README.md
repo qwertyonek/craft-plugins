@@ -41,7 +41,8 @@ Inspired by industry-standard After Effects plugins (*Deep Glow*, *Quick Chromat
 
 | Plugin | Architecture | Size | Latest Release | Direct Download |
 | :--- | :---: | :---: | :---: | :--- |
-| **Craft Glow** | WASM API v1 | `33 KB` | `v1.0.0` | [⬇️ **Download `craft_glow.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_glow.wasm) |
+| **Craft Glow** | WASM API v1 | `32 KB` | `v1.0.0` | [⬇️ **Download `craft_glow.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_glow.wasm) |
+| **Craft Chromatic** | WASM API v1 | `37 KB` | `v1.0.0` | [⬇️ **Download `craft_chromatic.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_chromatic.wasm) |
 
 ---
 
@@ -50,11 +51,11 @@ Inspired by industry-standard After Effects plugins (*Deep Glow*, *Quick Chromat
 
 | Plugin | AE Counterpart | Category | Status | Highlights |
 | :--- | :--- | :--- | :---: | :--- |
-| **`craft-glow`** | *Deep Glow* | `Stylize` / `Glow` | ✅ `Ready` | Physically accurate inverse-square ($1/r^2$) falloff, luminance threshold, chromatic aberration halo, HDR tinting. |
-| **`craft-chromatic`** | *Quick Chromatic* | `Distort` / `Stylize` | 📋 `Planned` | Radial & linear RGB channel split, optical lens dispersion curves, per-channel blur, edge-falloff vignetting. |
-| **`craft-camera-shake`** | *Sapphire S_Shake* | `Distort` / `Transform` | 📋 `Planned` | Procedural multi-frequency Simplex noise, rotational/translational micro-jitter, auto-scale edge padding, motion blur. |
-| **`craft-displacer`** | *Displacer Pro* | `Distort` | 📋 `Planned` | Advanced subpixel displacement mapping, chromatic shift, rotation/scale mapping, anti-aliased coordinates. |
-| **`craft-halftone-dither`** | *Retro / Halftone* | `Stylize` / `Retro` | 📋 `Planned` | Matrix ordered dithering (Bayer 4×4 & 8×8), CMYK/RGB halftone screens, retro arcade palettes (GameBoy, CGA, Pico-8). |
+| **`craft-glow`** | *Deep Glow* | `by qwertyonek` | ✅ `Ready` | Physically accurate inverse-square ($1/r^2$) falloff, luminance threshold, chromatic aberration halo, HDR tinting. |
+| **`craft-chromatic`** | *Quick Chromatic* | `by qwertyonek` | ✅ `Ready` | Radial (optical lens dispersion) & linear (directional prism) RGB channel split, subpixel bilinear sampling, edge blur. |
+| **`craft-camera-shake`** | *Sapphire S_Shake* | `by qwertyonek` | 📋 `Planned` | Procedural multi-frequency Simplex noise, rotational/translational micro-jitter, auto-scale edge padding, motion blur. |
+| **`craft-displacer`** | *Displacer Pro* | `by qwertyonek` | 📋 `Planned` | Advanced subpixel displacement mapping, chromatic shift, rotation/scale mapping, anti-aliased coordinates. |
+| **`craft-halftone-dither`** | *Retro / Halftone* | `by qwertyonek` | 📋 `Planned` | Matrix ordered dithering (Bayer 4×4 & 8×8), CMYK/RGB halftone screens, retro arcade palettes (GameBoy, CGA, Pico-8). |
 
 ---
 

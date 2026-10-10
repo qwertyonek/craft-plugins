@@ -1,0 +1,12 @@
+[package]
+name = "craft-chromatic"
+version = "0.1.0"
+edition = "2024"
+authors = ["qwertyonek"]
+license = "MIT"
+description = "Optical lens dispersion and RGB chromatic aberration for EffectCraft"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]

@@ -41,7 +41,8 @@
 
 | 插件名称 | 运行架构 | 体积 | 最新版本 | 直接下载 |
 | :--- | :---: | :---: | :---: | :--- |
-| **Craft Glow** | WASM API v1 | `33 KB` | `v1.0.0` | [⬇️ **下载 `craft_glow.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_glow.wasm) |
+| **Craft Glow** | WASM API v1 | `32 KB` | `v1.0.0` | [⬇️ **下载 `craft_glow.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_glow.wasm) |
+| **Craft Chromatic** | WASM API v1 | `37 KB` | `v1.0.0` | [⬇️ **下载 `craft_chromatic.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_chromatic.wasm) |
 
 ---
 
@@ -50,11 +51,11 @@
 
 | 插件名称 | 对应 AE 插件 | 分类 | 状态 | 功能亮点 |
 | :--- | :--- | :--- | :---: | :--- |
-| **`craft-glow`** | *Deep Glow* | `Stylize` / `Glow` | ✅ `已完成` | 物理精确的平方反比衰减 ($1/r^2$)、辉光阈值截断、光晕色差边缘分离、HDR 色调映射。 |
-| **`craft-chromatic`** | *Quick Chromatic* | `Distort` / `Stylize` | 📋 `计划中` | 径向与线性 RGB 色彩分离、光学透镜色散曲线、单通道模糊、边缘暗角衰减控制。 |
-| **`craft-camera-shake`** | *Sapphire S_Shake* | `Distort` / `Transform` | 📋 `计划中` | 程序化多频 Simplex 噪声、微震颤与旋转晃动、防黑边自适应缩放、运动模糊。 |
-| **`craft-displacer`** | *Displacer Pro* | `Distort` | 📋 `计划中` | 高级次像素置换映射、色散偏移、旋转与缩放贴图控制、抗锯齿坐标映射。 |
-| **`craft-halftone-dither`** | *Retro / Halftone* | `Stylize` / `Retro` | 📋 `计划中` | 矩阵有序抖动算法 (Bayer 4×4 与 8×8)、CMYK/RGB 半色调网点、复古游戏调色板 (GameBoy, CGA, Pico-8)。 |
+| **`craft-glow`** | *Deep Glow* | `by qwertyonek` | ✅ `已完成` | 物理精确的平方反比衰减 ($1/r^2$)、辉光阈值截断、光晕色差边缘分离、HDR 色调映射。 |
+| **`craft-chromatic`** | *Quick Chromatic* | `by qwertyonek` | ✅ `已完成` | 径向（光学透镜色散）与线性（棱镜）RGB 色彩分离、次像素双线性插值采样、边缘模糊。 |
+| **`craft-camera-shake`** | *Sapphire S_Shake* | `by qwertyonek` | 📋 `计划中` | 程序化多频 Simplex 噪声、微震颤与旋转晃动、防黑边自适应缩放、运动模糊。 |
+| **`craft-displacer`** | *Displacer Pro* | `by qwertyonek` | 📋 `计划中` | 高级次像素置换映射、色散偏移、旋转与缩放贴图控制、抗锯齿坐标映射。 |
+| **`craft-halftone-dither`** | *Retro / Halftone* | `by qwertyonek` | 📋 `计划中` | 矩阵有序抖动算法 (Bayer 4×4 与 8×8)、CMYK/RGB 半色调网点、复古游戏调色板 (GameBoy, CGA, Pico-8)。 |
 
 ---
 
