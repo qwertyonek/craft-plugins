@@ -1,0 +1,11 @@
+[workspace]
+resolver = "2"
+members = [
+    "plugins/*",
+]
+
+[profile.release]
+opt-level = "s"
+lto = true
+panic = "abort"
+codegen-units = 1
