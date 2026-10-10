@@ -1,0 +1,50 @@
+name: Build and Release Plugins
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build WASM Plugins
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - name: Run Tests
+        run: cargo test --workspace
+
+      - name: Build WASM in Release Mode
+        run: cargo build --release --target wasm32-unknown-unknown
+
+      - name: Stage WASM Artifacts
+        run: |
+          mkdir -p release-artifacts
+          cp target/wasm32-unknown-unknown/release/*.wasm release-artifacts/
+          ls -lh release-artifacts/
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: craft-plugins-wasm
+          path: release-artifacts/*.wasm
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release-artifacts/*.wasm
+          generate_release_notes: true
