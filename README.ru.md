@@ -2,7 +2,7 @@
 
 # ⚡ CraftPlugins
 
-### Профессиональные WebAssembly плагины для моушн-дизайна и VFX в [EffectCraft](https://github.com/effectcraft/effectcraft)
+### Профессиональные WebAssembly плагины для моушн-дизайна и VFX в [EffectCraft](https://github.com/storytold/effectcraft)
 
 [![Версия Rust](https://img.shields.io/badge/rust-2024%20%7C%201.85+-orange.svg?logo=rust)](https://www.rust-lang.org)
 [![Целевая платформа](https://img.shields.io/badge/target-wasm32--unknown--unknown-blue.svg?logo=webassembly)](https://webassembly.org)

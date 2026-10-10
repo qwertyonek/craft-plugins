@@ -2,7 +2,7 @@
 
 # ⚡ CraftPlugins
 
-### 适用于 [EffectCraft](https://github.com/effectcraft/effectcraft) 的专业级 WebAssembly 动态设计与视觉特效插件库
+### 适用于 [EffectCraft](https://github.com/storytold/effectcraft) 的专业级 WebAssembly 动态设计与视觉特效插件库
 
 [![Rust 版本](https://img.shields.io/badge/rust-2024%20%7C%201.85+-orange.svg?logo=rust)](https://www.rust-lang.org)
 [![编译目标](https://img.shields.io/badge/target-wasm32--unknown--unknown-blue.svg?logo=webassembly)](https://webassembly.org)

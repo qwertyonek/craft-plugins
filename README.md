@@ -2,7 +2,7 @@
 
 # ⚡ CraftPlugins
 
-### Production-grade WebAssembly motion design & VFX plugins for [EffectCraft](https://github.com/effectcraft/effectcraft)
+### Production-grade WebAssembly motion design & VFX plugins for [EffectCraft](https://github.com/storytold/effectcraft)
 
 [![Rust Version](https://img.shields.io/badge/rust-2024%20%7C%201.85+-orange.svg?logo=rust)](https://www.rust-lang.org)
 [![Target](https://img.shields.io/badge/target-wasm32--unknown--unknown-blue.svg?logo=webassembly)](https://webassembly.org)
