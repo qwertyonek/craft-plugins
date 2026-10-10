@@ -2,3 +2,9 @@ target/
 Cargo.lock
 *.wasm
 .DS_Store
+
+# Serena
+.serena/cache/
+.serena/project.local.yml
+.serena/logs/
+

@@ -1,89 +1,129 @@
-# CraftPlugins — Community Motion Design Plugins for EffectCraft
+<div align="center">
 
-> Сборник open-source визуальных и моушн-дизайн плагинов для **EffectCraft** (опенсорсного аналога Adobe After Effects на Rust).
-> Плагины компилируются в кроссплатформенный **WebAssembly (WASM)** и работают на Linux, Windows и macOS без внешних зависимостей.
+# ⚡ CraftPlugins
 
----
+### Production-grade WebAssembly motion design & VFX plugins for [EffectCraft](https://github.com/effectcraft/effectcraft)
 
-## 🎯 Цель проекта
-Создать топовый набор независимых плагинов визуальных эффектов (вдохновленных культовыми плагинами для After Effects от Video Copilot, Plugin Everything и Red Giant) в формате `.wasm`, готовых к установке в EffectCraft в 1 клик.
+[![Rust Version](https://img.shields.io/badge/rust-2024%20%7C%201.85+-orange.svg?logo=rust)](https://www.rust-lang.org)
+[![Target](https://img.shields.io/badge/target-wasm32--unknown--unknown-blue.svg?logo=webassembly)](https://webassembly.org)
+[![API Version](https://img.shields.io/badge/EffectCraft%20API-v1-6366f1.svg)](#architecture--api-v1)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
 
----
-
-## 🚀 Дорожная карта плагинов (Что разрабатываем)
-
-### 1. `craft-glow` (Аналог Deep Glow от Plugin Everything)
-* **Приоритет:** ВЫСОКИЙ (Первый плагин)
-* **Суть:** Физически корректное, сочное свечение с затуханием по обратному квадрату (`1/r²`), порогом отсечения яркости (Threshold), радиусом, интенсивностью и хроматическим расхождением спектра по краям ореола.
-* **Параметры:**
-  * `Radius` (Slider, default: 50.0)
-  * `Brightness` (Slider, default: 1.0)
-  * `Threshold` (Slider, default: 0.6)
-  * `Falloff` (Slider, default: 2.0 — закон обратных квадратов)
-  * `Tint` (Color, default: White)
-  * `Aberration` (Slider, default: 5.0 — сдвиг RGB каналов в свечении)
-
-### 2. `craft-chromatic` (Аналог Quick Chromatic Aberration / QCA)
-* **Приоритет:** ВЫСОКИЙ
-* **Суть:** Радиальное или линейное расхождение цветовых каналов (RGB Split), эмуляция дисперсии линзы, виньетирование аберраций от центра к краям.
-* **Параметры:**
-  * `Amount` (Slider)
-  * `Mode` (Popup: Radial / Linear)
-  * `Angle` (Angle — для линейного сдвига)
-  * `Blur Channels` (Checkbox)
-
-### 3. `craft-camera-shake` (Аналог Boris FX Sapphire S_Shake)
-* **Приоритет:** СРЕДНИЙ
-* **Суть:** Натуральное процедурное дрожание камеры (Perlin / Simplex шум), толчки, микро-вибрации, авто-скейл для предотвращения черных краев и motion blur.
-
-### 4. `craft-displacer` (Аналог Displacer Pro)
-* **Приоритет:** СРЕДНИЙ
-* **Суть:** Смещение пикселей (Displacement Map) с контролем вращения, масштабирования, хроматики и субпиксельного сглаживания.
-
-### 5. `craft-halftone-dither` (Ретро-дизеринг и газетный растр)
-* **Приоритет:** СРЕДНИЙ
-* **Суть:** Матричный дизеринг (Bayer 4x4 / 8x8), полутоновые точки (CMYK/RGB Halftone dots), палитры ретро-консолей.
+<p align="center">
+  <a href="README.md"><b>English</b></a> •
+  <a href="README.ru.md"><b>Русский</b></a> •
+  <a href="README.zh-CN.md"><b>简体中文</b></a>
+</p>
 
 ---
 
-## 🛠 Технический контекст и архитектура EffectCraft Plug-in API v1
+</div>
 
-### Как работает плагин в EffectCraft:
-1. Плагин — это `.wasm` библиотека (компилируется с `--target wasm32-unknown-unknown`).
-2. В рантайме EffectCraft исполняет его через изолированный интерпретатор `wasmi` (fuel limit на кадр, защита от зависаний).
-3. Плагин экспортирует следующие C-функции:
-   * `ec_api_version() -> i32` — возвращает `1`.
-   * `ec_manifest_ptr() -> i32` и `ec_manifest_len() -> i32` — возвращает UTF-8 JSON-манифест с описанием параметров и категории в Effects & Presets.
-   * `ec_alloc(bytes: i32) -> i32` — аллоцирует буфер для параметров и пикселей.
-   * `ec_render(pixels: i32, width: i32, height: i32, params: i32, nparams: i32, time: f64, scale: f64) -> i32` — обрабатывает кадр in-place (RGBA `f32` premultiplied).
+## 🌟 Overview
 
-### Формат пикселей:
-* `f32` значения от `0.0` до `1.0` (может превышать `1.0` в 32 bpc HDR проектах).
-* Premultiplied RGBA (цвет помножен на альфу).
-* Обработка: `(r, g, b) = (c[0] / a, c[1] / a, c[2] / a)`. После эффекта: `c[i] = v * a`.
+**CraftPlugins** is an open-source suite of high-performance visual effects and motion design plugins engineered specifically for **EffectCraft** (the modern open-source Rust alternative to Adobe After Effects).
+
+Inspired by industry-standard After Effects plugins (*Deep Glow*, *Quick Chromatic Aberration*, *Sapphire Shake*, *Displacer Pro*), each effect is compiled into a standalone, zero-dependency **WebAssembly (`.wasm`)** binary that runs sandboxed, deterministically, and cross-platform (Linux, macOS, Windows) at native-level speeds.
+
+### ✨ Key Features
+- 🚀 **Zero Overhead WASM:** Compiled with `--target wasm32-unknown-unknown`, executing via host-sandboxed WebAssembly with fuel metering and zero native host bloat.
+- 🎨 **32-bpc HDR Pipeline:** Native processing of linear premultiplied `f32` RGBA buffers, preserving full dynamic range and highlight details without banding.
+- 📦 **One-Click Hot-Loading:** Load `.wasm` files directly into running EffectCraft sessions via `Effect ▸ Load Effect Plug-in…` or drop them into your `Plug-ins` directory.
+- 🎛️ **Full Keyframe & Expression Support:** Exposes native host properties (sliders, angles, colors, checkboxes, points, popups) directly to the Effect Controls panel and timeline graph editor.
 
 ---
 
-## 📦 Сборка и тестирование
+## 🧩 Plugin Suite
 
-### 1. Сборка плагина в `.wasm`:
+| Plugin | AE Counterpart | Category | Status | Highlights |
+| :--- | :--- | :--- | :---: | :--- |
+| **`craft-glow`** | *Deep Glow* | `Stylize` / `Glow` | 🔨 `Building` | Physically accurate inverse-square ($1/r^2$) falloff, luminance threshold, chromatic aberration halo, HDR tinting. |
+| **`craft-chromatic`** | *Quick Chromatic* | `Distort` / `Stylize` | 📋 `Planned` | Radial & linear RGB channel split, optical lens dispersion curves, per-channel blur, edge-falloff vignetting. |
+| **`craft-camera-shake`** | *Sapphire S_Shake* | `Distort` / `Transform` | 📋 `Planned` | Procedural multi-frequency Simplex noise, rotational/translational micro-jitter, auto-scale edge padding, motion blur. |
+| **`craft-displacer`** | *Displacer Pro* | `Distort` | 📋 `Planned` | Advanced subpixel displacement mapping, chromatic shift, rotation/scale mapping, anti-aliased coordinates. |
+| **`craft-halftone-dither`** | *Retro / Halftone* | `Stylize` / `Retro` | 📋 `Planned` | Matrix ordered dithering (Bayer 4×4 & 8×8), CMYK/RGB halftone screens, retro arcade palettes (GameBoy, CGA, Pico-8). |
+
+---
+
+## 📐 Architecture & API v1
+
+EffectCraft plug-ins adhere to the official **Plug-in API v1** ABI. Plug-ins have **no external imports** and communicate through a shared linear memory buffer:
+
+```mermaid
+flowchart LR
+    A["EffectCraft Host"] -->|"1. ec_alloc(bytes)"| B["WASM Linear Memory"]
+    A -->|"2. Write params + pixels"| B
+    A -->|"3. ec_render(pixels, w, h...)"| C["Plugin Kernel (In-Place)"]
+    C -->|"4. Return 0 (Success)"| A
+```
+
+### Exported Symbols:
+* `ec_api_version() -> i32` — Must return `1`.
+* `ec_manifest_ptr() -> i32` & `ec_manifest_len() -> i32` — Memory offset & byte length of the UTF-8 JSON manifest.
+* `ec_alloc(bytes: i32) -> i32` — Allocates an 8-byte aligned memory buffer for parameter values and pixels.
+* `ec_render(pixels, width, height, params, nparams, time, scale) -> i32` — Processes premultiplied RGBA `f32` in-place.
+
+### Pixel Contract:
+- Pixels are stored in row-major **Premultiplied RGBA `f32`** (`[r, g, b, a]`).
+- Channels: `0.0` .. `1.0` (can exceed `1.0` in 32-bpc HDR compositions).
+- Un-premultiply before nonlinear operations: `rgb = c[0..3] / a`, then re-premultiply upon output: `c[0..3] = rgb * a`.
+
+---
+
+## 🚀 Quick Start & Installation
+
+### Option 1: Drop into Plug-ins Folder (Auto-load on startup)
+Copy compiled `.wasm` plugins into your platform settings folder:
+- **Linux:** `~/.config/effectcraft/Plug-ins/`
+- **macOS:** `~/Library/Application Support/EffectCraft/Plug-ins/`
+- **Windows:** `%APPDATA%\EffectCraft\Plug-ins\`
+
+### Option 2: Load at Runtime
+1. Open **EffectCraft**.
+2. Select your layer in the timeline or composition viewer.
+3. In the top menu bar, click: **`Effect ▸ Load Effect Plug-in…`**
+4. Select your `.wasm` file. The plugin will immediately register in **Effects & Presets** and apply to the active layer!
+
+---
+
+## 🛠️ Building from Source
+
+### Prerequisites
+- [Rust toolchain](https://rustup.rs/) (1.85+)
+- WebAssembly target:
 ```bash
+rustup target add wasm32-unknown-unknown
+```
+
+### Build All Plugins
+```bash
+# Clone the repository
+git clone https://github.com/qwertyonek/craft-plugins.git
+cd craft-plugins
+
+# Build all workspace plugins in release mode
 cargo build --release --target wasm32-unknown-unknown
 ```
-Скомпилированный файл появится в:
-`target/wasm32-unknown-unknown/release/<plugin_name>.wasm`
 
-### 2. Тестирование в установленном EffectCraft:
-* Запустить `effectcraft`.
-* Создать композицию, добавить слой (картинку / solid).
-* В верхнем меню нажать: **`Effect ▸ Load Effect Plug-in…`** и выбрать `.wasm` файл.
-* Эффект появится в панели **Effects & Presets** под своей категорией и будет доступен на слое с полным UI и кейфреймами.
-* Также можно закинуть `.wasm` в `~/.config/effectcraft/Plug-ins/` для автозагрузки при старте.
+Compiled `.wasm` artifacts will be located in:
+```text
+target/wasm32-unknown-unknown/release/*.wasm
+```
 
 ---
 
-## 📌 Окружение на машине
-* **OS:** Arch Linux (`qwertyonek-arch`)
-* **EffectCraft binary:** `/usr/local/bin/effectcraft` (с нашей кастомной кнопкой Browse для LUT)
-* **EffectCraft source:** `~/dev/effectcraft`
-* **Rust target wasm:** `wasm32-unknown-unknown` (уже установлен в `rustup`)
+## 🤝 Contributing
+
+Contributions, feature requests, and new plugin ideas are warmly welcome!
+1. Fork the Project.
+2. Create your Feature Branch (`git checkout -b feat/amazing-plugin`).
+3. Commit your Changes (`git commit -m 'feat: add amazing-plugin'`).
+4. Push to the Branch (`git push origin feat/amazing-plugin`).
+5. Open a Pull Request.
+
+---
+
+## 📄 License
+
+Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more details.
