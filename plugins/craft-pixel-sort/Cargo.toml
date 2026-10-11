@@ -1,0 +1,12 @@
+[package]
+name = "craft-pixel-sort"
+version = "1.0.0"
+edition = "2024"
+authors = ["qwertyonek"]
+description = "High-performance directional pixel sorting glitch for EffectCraft."
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
