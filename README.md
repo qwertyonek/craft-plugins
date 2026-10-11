@@ -44,6 +44,7 @@ Inspired by industry-standard After Effects plugins (*Deep Glow*, *Quick Chromat
 | **Craft Glow** | WASM API v1 | `32 KB` | `v1.0.0` | [⬇️ **Download `craft_glow.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_glow.wasm) |
 | **Craft Chromatic** | WASM API v1 | `37 KB` | `v1.0.0` | [⬇️ **Download `craft_chromatic.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_chromatic.wasm) |
 | **Craft Camera Shake** | WASM API v1 | `40 KB` | `v1.0.0` | [⬇️ **Download `craft_camera_shake.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_camera_shake.wasm) |
+| **Craft Displacer** | WASM API v1 | `42 KB` | `v1.0.0` | [⬇️ **Download `craft_displacer.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_displacer.wasm) |
 
 ---
 
@@ -55,7 +56,7 @@ Inspired by industry-standard After Effects plugins (*Deep Glow*, *Quick Chromat
 | **`craft-glow`** | *Deep Glow* | `by qwertyonek` | ✅ `Ready` | Physically accurate inverse-square ($1/r^2$) falloff, luminance threshold, chromatic aberration halo, HDR tinting. |
 | **`craft-chromatic`** | *Quick Chromatic* | `by qwertyonek` | ✅ `Ready` | Radial (optical lens dispersion) & linear (directional prism) RGB channel split, subpixel bilinear sampling, edge blur. |
 | **`craft-camera-shake`** | *Sapphire S_Shake* | `by qwertyonek` | ✅ `Ready` | Procedural multi-frequency gradient noise, subpixel translation/rotation, auto-scale compensation, motion blur. |
-| **`craft-displacer`** | *Displacer Pro* | `by qwertyonek` | 📋 `Planned` | Advanced subpixel displacement mapping, chromatic shift, rotation/scale mapping, anti-aliased coordinates. |
+| **`craft-displacer`** | *Displacer Pro* | `by qwertyonek` | ✅ `Ready` | Advanced subpixel displacement mapping, glass refraction, fluid turbulence, radial ripple, chromatic dispersion. |
 | **`craft-halftone-dither`** | *Retro / Halftone* | `by qwertyonek` | 📋 `Planned` | Matrix ordered dithering (Bayer 4×4 & 8×8), CMYK/RGB halftone screens, retro arcade palettes (GameBoy, CGA, Pico-8). |
 
 ---

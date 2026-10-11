@@ -44,6 +44,7 @@
 | **Craft Glow** | WASM API v1 | `32 KB` | `v1.0.0` | [⬇️ **下载 `craft_glow.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_glow.wasm) |
 | **Craft Chromatic** | WASM API v1 | `37 KB` | `v1.0.0` | [⬇️ **下载 `craft_chromatic.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_chromatic.wasm) |
 | **Craft Camera Shake** | WASM API v1 | `40 KB` | `v1.0.0` | [⬇️ **下载 `craft_camera_shake.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_camera_shake.wasm) |
+| **Craft Displacer** | WASM API v1 | `42 KB` | `v1.0.0` | [⬇️ **下载 `craft_displacer.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_displacer.wasm) |
 
 ---
 
@@ -55,7 +56,7 @@
 | **`craft-glow`** | *Deep Glow* | `by qwertyonek` | ✅ `已完成` | 物理精确的平方反比衰减 ($1/r^2$)、辉光阈值截断、光晕色差边缘分离、HDR 色调映射。 |
 | **`craft-chromatic`** | *Quick Chromatic* | `by qwertyonek` | ✅ `已完成` | 径向（光学透镜色散）与线性（棱镜）RGB 色彩分离、次像素双线性插值采样、边缘模糊。 |
 | **`craft-camera-shake`** | *Sapphire S_Shake* | `by qwertyonek` | ✅ `已完成` | 程序化多频连续梯度噪声、次像素平移与旋转抖动、边缘自适应防黑边、运动模糊。 |
-| **`craft-displacer`** | *Displacer Pro* | `by qwertyonek` | 📋 `计划中` | 高级次像素置换映射、色散偏移、旋转与缩放贴图控制、抗锯齿坐标映射。 |
+| **`craft-displacer`** | *Displacer Pro* | `by qwertyonek` | ✅ `已完成` | 高级次像素置换映射、玻璃折射法线计算、流体湍流、冲击波纹、色散色差偏移。 |
 | **`craft-halftone-dither`** | *Retro / Halftone* | `by qwertyonek` | 📋 `计划中` | 矩阵有序抖动算法 (Bayer 4×4 与 8×8)、CMYK/RGB 半色调网点、复古游戏调色板 (GameBoy, CGA, Pico-8)。 |
 
 ---

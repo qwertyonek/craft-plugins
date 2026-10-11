@@ -1,0 +1,12 @@
+[package]
+name = "craft-displacer"
+version = "1.0.0"
+edition = "2024"
+authors = ["qwertyonek"]
+description = "High-performance glass refraction, fluid displacement & chromatic warp for EffectCraft."
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
