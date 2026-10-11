@@ -1,0 +1,12 @@
+[package]
+name = "craft-halftone-dither"
+version = "1.0.0"
+edition = "2024"
+authors = ["qwertyonek"]
+description = "Retro matrix dithering, halftone print screen & arcade palette quantization for EffectCraft."
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]

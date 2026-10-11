@@ -45,6 +45,7 @@ Inspired by industry-standard After Effects plugins (*Deep Glow*, *Quick Chromat
 | **Craft Chromatic** | WASM API v1 | `37 KB` | `v1.0.0` | [⬇️ **Download `craft_chromatic.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_chromatic.wasm) |
 | **Craft Camera Shake** | WASM API v1 | `40 KB` | `v1.0.0` | [⬇️ **Download `craft_camera_shake.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_camera_shake.wasm) |
 | **Craft Displacer** | WASM API v1 | `42 KB` | `v1.0.0` | [⬇️ **Download `craft_displacer.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_displacer.wasm) |
+| **Craft Halftone & Dither** | WASM API v1 | `40 KB` | `v1.0.0` | [⬇️ **Download `craft_halftone_dither.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_halftone_dither.wasm) |
 
 ---
 
@@ -57,7 +58,8 @@ Inspired by industry-standard After Effects plugins (*Deep Glow*, *Quick Chromat
 | **`craft-chromatic`** | *Quick Chromatic* | `by qwertyonek` | ✅ `Ready` | Radial (optical lens dispersion) & linear (directional prism) RGB channel split, subpixel bilinear sampling, edge blur. |
 | **`craft-camera-shake`** | *Sapphire S_Shake* | `by qwertyonek` | ✅ `Ready` | Procedural multi-frequency gradient noise, subpixel translation/rotation, auto-scale compensation, motion blur. |
 | **`craft-displacer`** | *Displacer Pro* | `by qwertyonek` | ✅ `Ready` | Advanced subpixel displacement mapping, glass refraction, fluid turbulence, radial ripple, chromatic dispersion. |
-| **`craft-halftone-dither`** | *Retro / Halftone* | `by qwertyonek` | 📋 `Planned` | Matrix ordered dithering (Bayer 4×4 & 8×8), CMYK/RGB halftone screens, retro arcade palettes (GameBoy, CGA, Pico-8). |
+| **`craft-halftone-dither`** | *Retro / Halftone* | `by qwertyonek` | ✅ `Ready` | Matrix ordered dithering (Bayer 4×4 & 8×8), CMYK newspaper halftone screens, retro arcade palettes (GameBoy, CGA, Cyberpunk). |
+| **`craft-lens-blur`** | *Fast Camera Lens Blur* | `by qwertyonek` | 📋 `Planned` | Optical polygonal bokeh simulation, specular highlights threshold boost, anamorphic aspect ratio, chromatic fringe. |
 
 ---
 
