@@ -48,6 +48,7 @@
 | **Craft Halftone & Dither** | WASM API v1 | `40 KB` | `v1.0.0` | [⬇️ **下载 `craft_halftone_dither.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_halftone_dither.wasm) |
 | **Craft VHS Glitch** | WASM API v1 | `42 KB` | `v1.0.0` | [⬇️ **下载 `craft_vhs_glitch.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_vhs_glitch.wasm) |
 | **Craft Pixel Sort** | WASM API v1 | `48 KB` | `v1.0.0` | [⬇️ **下载 `craft_pixel_sort.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_pixel_sort.wasm) |
+| **Craft Anamorphic Flare** | WASM API v1 | `39 KB` | `v1.0.0` | [⬇️ **下载 `craft_anamorphic_flare.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_anamorphic_flare.wasm) |
 
 ---
 
@@ -63,6 +64,7 @@
 | **`craft-halftone-dither`** | *Retro / Halftone* | `by qwertyonek` | ✅ `已完成` | 矩阵有序抖动算法 (Bayer 4×4 与 8×8)、CMYK 半色调网点、复古游戏调色板 (GameBoy, CGA, Cyberpunk)。 |
 | **`craft-vhs-glitch`** | *Universe VHS* | `by qwertyonek` | ✅ `已完成` | 真实模拟录像带信号损伤、磁头跟踪噪波带、扫描线漂移、2D 胶片散焦模糊、YIQ 色度渗色。 |
 | **`craft-pixel-sort`** | *AE Pixel Sorter* | `by qwertyonek` | ✅ `已完成` | 沿指定方向（横向/纵向/对角）按亮度、饱和度与色调进行像素排序，双阈值选区，条纹长度限制。 |
+| **`craft-anamorphic-flare`** | *Starglow / Anamorphic* | `by qwertyonek` | ✅ `已完成` | 好莱坞级宽银幕变形镜头横向光斑，3八度指数级扩散，光谱色散棱镜，科幻青蓝与暖金预设。 |
 
 ---
 

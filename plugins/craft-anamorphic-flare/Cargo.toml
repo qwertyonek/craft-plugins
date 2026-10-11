@@ -1,0 +1,12 @@
+[package]
+name = "craft-anamorphic-flare"
+version = "1.0.0"
+edition = "2024"
+authors = ["qwertyonek"]
+description = "Cinematic anamorphic streaks, horizontal optical lens flares & spectral chromatic rays for EffectCraft."
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
