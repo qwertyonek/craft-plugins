@@ -46,6 +46,7 @@
 | **Craft Camera Shake** | WASM API v1 | `40 KB` | `v1.0.0` | [⬇️ **Скачать `craft_camera_shake.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_camera_shake.wasm) |
 | **Craft Displacer** | WASM API v1 | `42 KB` | `v1.0.0` | [⬇️ **Скачать `craft_displacer.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_displacer.wasm) |
 | **Craft Halftone & Dither** | WASM API v1 | `40 KB` | `v1.0.0` | [⬇️ **Скачать `craft_halftone_dither.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_halftone_dither.wasm) |
+| **Craft VHS Glitch** | WASM API v1 | `42 KB` | `v1.0.0` | [⬇️ **Скачать `craft_vhs_glitch.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_vhs_glitch.wasm) |
 
 ---
 
@@ -59,7 +60,7 @@
 | **`craft-camera-shake`** | *Sapphire S_Shake* | `by qwertyonek` | ✅ `Готов` | Процедурный градиентный шум, субпиксельное смещение и вращение, авто-зум для компенсации краев, motion blur. |
 | **`craft-displacer`** | *Displacer Pro* | `by qwertyonek` | ✅ `Готов` | Субпиксельное смещение, преломление стекла по яркости, жидкая турбулентность, ударные волны, хроматическая дисперсия. |
 | **`craft-halftone-dither`** | *Retro / Halftone* | `by qwertyonek` | ✅ `Готов` | Матричный упорядоченный дизеринг (Bayer 4×4 и 8×8), газетный растр CMYK, палитры ретро-консолей (GameBoy, CGA, Cyberpunk). |
-| **`craft-lens-blur`** | *Fast Camera Lens Blur* | `by qwertyonek` | 📋 `Запланирован` | Оптическое полигональное боке, выделение ярких бликов (specular boost), анаморфотный аспект, хроматическая окантовка. |
+| **`craft-vhs-glitch`** | *Universe VHS* | `by qwertyonek` | ✅ `Готов` | Аналоговые помехи VHS, бегущая полоса трекинга, джиттер строк, 2D пленочный расфокус, NTSC цветовой сдвиг. |
 
 ---
 

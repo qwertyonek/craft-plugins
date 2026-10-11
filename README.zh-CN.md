@@ -46,6 +46,7 @@
 | **Craft Camera Shake** | WASM API v1 | `40 KB` | `v1.0.0` | [⬇️ **下载 `craft_camera_shake.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_camera_shake.wasm) |
 | **Craft Displacer** | WASM API v1 | `42 KB` | `v1.0.0` | [⬇️ **下载 `craft_displacer.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_displacer.wasm) |
 | **Craft Halftone & Dither** | WASM API v1 | `40 KB` | `v1.0.0` | [⬇️ **下载 `craft_halftone_dither.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_halftone_dither.wasm) |
+| **Craft VHS Glitch** | WASM API v1 | `42 KB` | `v1.0.0` | [⬇️ **下载 `craft_vhs_glitch.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_vhs_glitch.wasm) |
 
 ---
 
@@ -59,7 +60,7 @@
 | **`craft-camera-shake`** | *Sapphire S_Shake* | `by qwertyonek` | ✅ `已完成` | 程序化多频连续梯度噪声、次像素平移与旋转抖动、边缘自适应防黑边、运动模糊。 |
 | **`craft-displacer`** | *Displacer Pro* | `by qwertyonek` | ✅ `已完成` | 高级次像素置换映射、玻璃折射法线计算、流体湍流、冲击波纹、色散色差偏移。 |
 | **`craft-halftone-dither`** | *Retro / Halftone* | `by qwertyonek` | ✅ `已完成` | 矩阵有序抖动算法 (Bayer 4×4 与 8×8)、CMYK 半色调网点、复古游戏调色板 (GameBoy, CGA, Cyberpunk)。 |
-| **`craft-lens-blur`** | *Fast Camera Lens Blur* | `by qwertyonek` | 📋 `计划中` | 多边形拟真镜头散景 (Bokeh)、高光阈值增强、变形宽银幕宽高比、散景边缘色散。 |
+| **`craft-vhs-glitch`** | *Universe VHS* | `by qwertyonek` | ✅ `已完成` | 真实模拟录像带信号损伤、磁头跟踪噪波带、扫描线漂移、2D 胶片散焦模糊、YIQ 色度渗色。 |
 
 ---
 

@@ -1,0 +1,12 @@
+[package]
+name = "craft-vhs-glitch"
+version = "1.0.0"
+edition = "2024"
+authors = ["qwertyonek"]
+description = "Authentic analog VHS tape damage, NTSC scanline drift, tracking noise & chromatic phase bleed."
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
