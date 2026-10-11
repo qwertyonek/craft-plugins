@@ -1,0 +1,12 @@
+[package]
+name = "craft-camera-shake"
+version = "1.0.0"
+edition = "2024"
+authors = ["qwertyonek"]
+description = "Cinematic camera shake & procedural handheld organic motion for EffectCraft."
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
