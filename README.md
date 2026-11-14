@@ -49,6 +49,8 @@ Inspired by industry-standard After Effects plugins (*Deep Glow*, *Quick Chromat
 | **Craft VHS Glitch** | WASM API v1 | `42 KB` | `v1.0.0` | [⬇️ **Download `craft_vhs_glitch.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_vhs_glitch.wasm) |
 | **Craft Pixel Sort** | WASM API v1 | `48 KB` | `v1.0.0` | [⬇️ **Download `craft_pixel_sort.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_pixel_sort.wasm) |
 | **Craft Anamorphic Flare** | WASM API v1 | `39 KB` | `v1.0.0` | [⬇️ **Download `craft_anamorphic_flare.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_anamorphic_flare.wasm) |
+| **Craft Motion Blur Curves** | WASM API v1 | `44 KB` | `v1.0.0` | [⬇️ **Download `craft_motion_blur_curves.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_motion_blur_curves.wasm) |
+| **Craft Reveal** | WASM API v1 | `29 KB` | `v1.0.0` | [⬇️ **Download `craft_reveal.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_reveal.wasm) |
 
 ---
 
@@ -65,6 +67,8 @@ Inspired by industry-standard After Effects plugins (*Deep Glow*, *Quick Chromat
 | **`craft-vhs-glitch`** | *Universe VHS* | `by qwertyonek` | ✅ `Ready` | Authentic analog VHS tape damage, tracking noise bar, scanline drift, 2D tape defocus blur, YIQ chroma bleed. |
 | **`craft-pixel-sort`** | *AE Pixel Sorter* | `by qwertyonek` | ✅ `Ready` | Directional luminance/saturation/hue pixel sorting, two-point thresholding, streak length clamping, jitter. |
 | **`craft-anamorphic-flare`** | *Starglow / Anamorphic* | `by qwertyonek` | ✅ `Ready` | Hollywood anamorphic streaks, 3-octave exponential diffusion, spectral chromatic prism, sci-fi & gold presets. |
+| **`craft-motion-blur-curves`** | *Sapphire S_BlurMoCurves* | `by qwertyonek` | ✅ `Ready` | Arc accumulation blur — direction, curvature, taper, linear/gaussian/center falloff, 8–64 samples, mirror/clamp/transparent edges, sample jitter. |
+| **`craft-reveal`** | *Typewriter / Build* | `by qwertyonek` | ✅ `Ready` | Animated reveal and wipe with a soft edge, line- or block-quantised stepping (reads as a build, not a wipe), radial mode, and a cursor riding the front. |
 
 ---
 

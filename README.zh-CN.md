@@ -49,6 +49,8 @@
 | **Craft VHS Glitch** | WASM API v1 | `42 KB` | `v1.0.0` | [⬇️ **下载 `craft_vhs_glitch.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_vhs_glitch.wasm) |
 | **Craft Pixel Sort** | WASM API v1 | `48 KB` | `v1.0.0` | [⬇️ **下载 `craft_pixel_sort.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_pixel_sort.wasm) |
 | **Craft Anamorphic Flare** | WASM API v1 | `39 KB` | `v1.0.0` | [⬇️ **下载 `craft_anamorphic_flare.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_anamorphic_flare.wasm) |
+| **Craft Motion Blur Curves** | WASM API v1 | `44 KB` | `v1.0.0` | [⬇️ **下载 `craft_motion_blur_curves.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_motion_blur_curves.wasm) |
+| **Craft Reveal** | WASM API v1 | `29 KB` | `v1.0.0` | [⬇️ **下载 `craft_reveal.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_reveal.wasm) |
 
 ---
 
@@ -65,6 +67,8 @@
 | **`craft-vhs-glitch`** | *Universe VHS* | `by qwertyonek` | ✅ `已完成` | 真实模拟录像带信号损伤、磁头跟踪噪波带、扫描线漂移、2D 胶片散焦模糊、YIQ 色度渗色。 |
 | **`craft-pixel-sort`** | *AE Pixel Sorter* | `by qwertyonek` | ✅ `已完成` | 沿指定方向（横向/纵向/对角）按亮度、饱和度与色调进行像素排序，双阈值选区，条纹长度限制。 |
 | **`craft-anamorphic-flare`** | *Starglow / Anamorphic* | `by qwertyonek` | ✅ `已完成` | 好莱坞级宽银幕变形镜头横向光斑，3八度指数级扩散，光谱色散棱镜，科幻青蓝与暖金预设。 |
+| **`craft-motion-blur-curves`** | *Sapphire S_BlurMoCurves* | `by qwertyonek` | ✅ `已完成` | 弧形累积运动模糊 —— 方向、曲率、两端渐隐、线性/高斯/居中权重、8–64 采样、镜像/钳制/透明边缘、采样抖动。 |
+| **`craft-reveal`** | *Typewriter / Build* | `by qwertyonek` | ✅ `已完成` | 动画揭示与擦除，软边过渡，按行或按块量化（更像逐块构建），径向模式，以及跟随前沿的光标。 |
 
 ---
 

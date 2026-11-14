@@ -49,6 +49,8 @@
 | **Craft VHS Glitch** | WASM API v1 | `42 KB` | `v1.0.0` | [⬇️ **Скачать `craft_vhs_glitch.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_vhs_glitch.wasm) |
 | **Craft Pixel Sort** | WASM API v1 | `48 KB` | `v1.0.0` | [⬇️ **Скачать `craft_pixel_sort.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_pixel_sort.wasm) |
 | **Craft Anamorphic Flare** | WASM API v1 | `39 KB` | `v1.0.0` | [⬇️ **Скачать `craft_anamorphic_flare.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_anamorphic_flare.wasm) |
+| **Craft Motion Blur Curves** | WASM API v1 | `44 KB` | `v1.0.0` | [⬇️ **Скачать `craft_motion_blur_curves.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_motion_blur_curves.wasm) |
+| **Craft Reveal** | WASM API v1 | `29 KB` | `v1.0.0` | [⬇️ **Скачать `craft_reveal.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_reveal.wasm) |
 
 ---
 
@@ -65,6 +67,8 @@
 | **`craft-vhs-glitch`** | *Universe VHS* | `by qwertyonek` | ✅ `Готов` | Аналоговые помехи VHS, бегущая полоса трекинга, джиттер строк, 2D пленочный расфокус, NTSC цветовой сдвиг. |
 | **`craft-pixel-sort`** | *AE Pixel Sorter* | `by qwertyonek` | ✅ `Готов` | Направленная сортировка пикселей по яркости, насыщенности и тону, двухпороговая маска, длина штриха. |
 | **`craft-anamorphic-flare`** | *Starglow / Anamorphic* | `by qwertyonek` | ✅ `Готов` | Голливудские анаморфотные горизонтальные лучи, 3-октавная экспоненциальная диффузия, спектральная дисперсия. |
+| **`craft-motion-blur-curves`** | *Sapphire S_BlurMoCurves* | `by qwertyonek` | ✅ `Готов` | Смаз по дуге: направление, кривизна, затухание к краям (taper), линейный/гауссов/центрованный вес, 8–64 сэмпла, зеркальный/зажимной/прозрачный край, джиттер сэмплов. |
+| **`craft-reveal`** | *Typewriter / Build* | `by qwertyonek` | ✅ `Готов` | Анимированное раскрытие и вайп с мягкой кромкой, построчное или блочное квантование (читается как сборка, а не вайп), радиальный режим и курсор на фронте. |
 
 ---
 

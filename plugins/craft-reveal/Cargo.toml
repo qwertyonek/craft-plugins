@@ -1,0 +1,12 @@
+[package]
+name = "craft-reveal"
+version = "1.0.0"
+edition = "2024"
+authors = ["qwertyonek"]
+description = "Animated reveal, wipe and typewriter-style build for EffectCraft layers."
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]

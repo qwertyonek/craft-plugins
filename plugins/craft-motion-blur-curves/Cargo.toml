@@ -1,0 +1,12 @@
+[package]
+name = "craft-motion-blur-curves"
+version = "1.0.0"
+edition = "2024"
+authors = ["qwertyonek"]
+description = "Curved accumulation motion blur — arc, taper, falloff and sample control for EffectCraft."
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
