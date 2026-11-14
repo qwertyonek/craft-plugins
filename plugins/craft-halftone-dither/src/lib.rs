@@ -10,11 +10,11 @@ const MANIFEST: &str = r#"{
   "id": "org.craftplugins.halftone",
   "name": "Craft Halftone & Dither",
   "category": "by qwertyonek",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "qwertyonek",
   "description": "Retro ordered dithering, CMYK newspaper halftone dots & arcade palettes.",
   "params": [
-    {"id": "about", "name": "Author", "type": "popup", "options": ["CraftPlugins by qwertyonek", "v1.0.0 (High Performance)", "github.com/qwertyonek/craft-plugins"], "default": 0},
+    {"id": "about", "name": "Author", "type": "popup", "options": ["CraftPlugins by qwertyonek", "v1.0.1 (High Performance)", "github.com/qwertyonek/craft-plugins"], "default": 0},
     {"id": "mode", "name": "Effect Mode", "type": "popup", "options": ["Ordered Dither (Bayer 8x8)", "Ordered Dither (Bayer 4x4)", "CMYK Newspaper Halftone Dots", "Mono Halftone Circles"], "default": 0},
     {"id": "palette", "name": "Color Palette", "type": "popup", "options": ["Full Color (RGB Dither)", "Monochrome 1-Bit (B&W)", "GameBoy Classic (4-Green)", "CGA Mode 1 (Cyan/Magenta)", "Cyberpunk Neon (4-Color)"], "default": 0},
     {"id": "cell_size", "name": "Pixel / Dot Size", "type": "slider", "default": 4.0, "min": 1.0, "max": 32.0, "sliderMax": 16.0, "decimals": 0},
@@ -325,8 +325,10 @@ fn render_dither_zero_alloc(
                             let rx = x_f * ct - y_f * st;
                             let ry = x_f * st + y_f * ct;
 
-                            let u = (rx % cell_size) / cell_size - 0.5;
-                            let v = (ry % cell_size) / cell_size - 0.5;
+                            // rem_euclid: `%` keeps the dividend's sign, so every
+                            // negative rotated coordinate landed in a shifted cell.
+                            let u = rx.rem_euclid(cell_size) / cell_size - 0.5;
+                            let v = ry.rem_euclid(cell_size) / cell_size - 0.5;
                             let dist = (u * u + v * v).sqrt() * 2.0;
 
                             let dot_radius = (val * 1.414).clamp(0.0, 1.414);
@@ -354,8 +356,8 @@ fn render_dither_zero_alloc(
                         let rx = x_f * cos_a - y_f * sin_a;
                         let ry = x_f * sin_a + y_f * cos_a;
 
-                        let u = (rx % cell_size) / cell_size - 0.5;
-                        let v = (ry % cell_size) / cell_size - 0.5;
+                        let u = rx.rem_euclid(cell_size) / cell_size - 0.5;
+                        let v = ry.rem_euclid(cell_size) / cell_size - 0.5;
                         let dist = (u * u + v * v).sqrt() * 2.0;
 
                         let dot_radius = (luma_c * 1.414).clamp(0.0, 1.414);
@@ -380,4 +382,61 @@ fn render_dither_zero_alloc(
             }
         }
     });
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    const W: usize = 96;
+    const H: usize = 96;
+
+    fn flat_gray() -> Vec<[f32; 4]> {
+        vec![[0.5, 0.5, 0.5, 1.0]; W * H]
+    }
+
+    /// Mean luminance of the two triangles split by the y = x diagonal.
+    fn half_means(px: &[[f32; 4]]) -> (f32, f32) {
+        let (mut sum_l, mut n_l, mut sum_r, mut n_r) = (0.0f32, 0, 0.0f32, 0);
+        for y in 0..H {
+            for x in 0..W {
+                let lum = px[y * W + x][0];
+                if x < y {
+                    sum_l += lum;
+                    n_l += 1;
+                } else {
+                    sum_r += lum;
+                    n_r += 1;
+                }
+            }
+        }
+        (sum_l / n_l as f32, sum_r / n_r as f32)
+    }
+
+    fn render(mode: f64, angle: f64) -> Vec<[f32; 4]> {
+        let mut px = flat_gray();
+        // about, mode, palette, cell_size, angle, contrast, spread, blend
+        let p = [0.0, mode, 0.0, 8.0, angle, 1.0, 0.0, 1.0];
+        assert_eq!(render_frame(&mut px, W, H, &p, 0.0, 1.0), 0);
+        px
+    }
+
+    /// `%` keeps the dividend sign, so rotated coordinates used to wrap into a
+    /// shifted cell on one side of the origin and blank out / invert half of the
+    /// screen along a diagonal. Coverage must be uniform for a flat input.
+    #[test]
+    fn halftone_screen_angle_is_continuous() {
+        for mode in [2.0, 3.0] {
+            for angle in [0.0, 15.0, 45.0, 75.0, 135.0, 200.0] {
+                let (l, r) = half_means(&render(mode, angle));
+                assert!(l > 0.02, "mode {mode} angle {angle}: left half is blank ({l})");
+                assert!(r > 0.02, "mode {mode} angle {angle}: right half is blank ({r})");
+                let delta = (l - r).abs();
+                assert!(
+                    delta < 0.02,
+                    "mode {mode} angle {angle}: diagonal seam, left {l} vs right {r}"
+                );
+            }
+        }
+    }
 }

@@ -45,7 +45,7 @@
 | **Craft Chromatic** | WASM API v1 | `37 KB` | `v1.0.0` | [⬇️ **下载 `craft_chromatic.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_chromatic.wasm) |
 | **Craft Camera Shake** | WASM API v1 | `40 KB` | `v1.0.0` | [⬇️ **下载 `craft_camera_shake.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_camera_shake.wasm) |
 | **Craft Displacer** | WASM API v1 | `42 KB` | `v1.0.0` | [⬇️ **下载 `craft_displacer.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_displacer.wasm) |
-| **Craft Halftone & Dither** | WASM API v1 | `40 KB` | `v1.0.0` | [⬇️ **下载 `craft_halftone_dither.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_halftone_dither.wasm) |
+| **Craft Halftone & Dither** | WASM API v1 | `41 KB` | `v1.0.1` | [⬇️ **下载 `craft_halftone_dither.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_halftone_dither.wasm) |
 | **Craft VHS Glitch** | WASM API v1 | `42 KB` | `v1.0.0` | [⬇️ **下载 `craft_vhs_glitch.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_vhs_glitch.wasm) |
 | **Craft Pixel Sort** | WASM API v1 | `48 KB` | `v1.0.0` | [⬇️ **下载 `craft_pixel_sort.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_pixel_sort.wasm) |
 | **Craft Anamorphic Flare** | WASM API v1 | `39 KB` | `v1.0.0` | [⬇️ **下载 `craft_anamorphic_flare.wasm`**](https://github.com/qwertyonek/craft-plugins/raw/main/dist/craft_anamorphic_flare.wasm) |
