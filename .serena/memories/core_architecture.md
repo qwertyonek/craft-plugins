@@ -1,41 +1,41 @@
 # Craft Plugins Architecture & Optimizations
 
 ## Repositories & Build
-- `craft-plugins`: `/home/qwertyonek/NEXTCLOUD/HOBBY/WIBECODE/craft-plugins`
+- `craft-plugins`: `/home/qwertyonek/NEXTCLOUD/HOBBY/WIBECODE/craft-plugins` (10 plug-ins, v1.1.0 released)
 - `dev/effectcraft`: `/home/qwertyonek/dev/effectcraft`
-- Target wasm binaries: `dist/*.wasm` and `~/.config/effectcraft/Plug-ins/`
+- Target wasm binaries: `dist/*.wasm`; host loads from `~/.config/effectcraft/Plug-ins/`
+- Skill with the full workflow: `wasm-pixel-plugins` (harness in its `scripts/plugin_harness.js`).
+
+## ABI v1 layout (easy to get wrong in a harness)
+One `ec_alloc(params_bytes + pixels_bytes)` per frame: params (f64) at base, pixels (premultiplied f32 RGBA) at `base + params_bytes`; `ec_render(pixels, w, h, base, nparams, time, scale)`. `ec_alloc` returns the SAME pointer every call, so allocating twice lets params overwrite the first rows of the frame.
 
 ## Build environment quirks
-- rustup `stable` toolchain can arrive broken (rustc binary missing while the component claims "up to date", or a mixed-version install where cargo 1.99 + rustc 1.97 gives E0514). Repair: `rustup toolchain uninstall stable && rustup toolchain install stable --profile minimal --target wasm32-unknown-unknown --component rustc,cargo`. System `/usr/bin/rustc` has no wasm32 std (no `rust-wasm` package), so use rustup only.
-- `cargo build` can print "Finished" without recompiling after a source file is restored via `cp` (mtime granularity). If a test result contradicts the source, run `cargo clean -p <crate>` — do not trust "Finished in 0.2s" for a fresh build artifact.
-- Headless A/B verification of a plugin: Node `WebAssembly.instantiate(module, {})` returns the instance directly when given a compiled Module; then `ec_alloc`/`ec_render`, params as `f64[8]`, pixels premultiplied `f32[4]`, export name `memory`. Harness lives in `~/.hermes/cache/scratch/halftone_ab.js`.
+- rustup `stable` can arrive broken (rustc missing / mixed cargo+rustc versions -> E0514). Repair: `rustup toolchain uninstall stable && rustup toolchain install stable --profile minimal --target wasm32-unknown-unknown --component rustc,cargo`.
+- `cargo build` may skip a rebuild after `cp`-restoring a source file; use `cargo clean -p <crate>` when output contradicts the source.
+- Release workflow: push tag `v*` -> CI runs `cargo test --workspace`, builds all wasm and attaches them to the GitHub Release.
 
 ## 1. Craft Glow (org.craftplugins.glow)
-- **Target Engine:** EffectCraft WebAssembly Plugin API v1 (`wasmi` bytecode interpreter).
-- **Core Architecture:**
-  1. Zero Heap Allocations: thread_local scratch pool.
-  2. Adaptive Downscale: 4x downscale for <=960p, 8x downscale for >960p (240-480px buffer).
-  3. Peter Kovesi O(1) Sliding-Window Box Blur: Dual-octave (Core + Bloom) running sum with branchless unrolled inner loops.
-  4. Direct Scanline Bilinear Reconstruction: zero intermediate buffers, sparse skip of zero-alpha segments, unrolled continuous bilinear lerp for 4- and 8-pixel spans.
+Adaptive downscale (4x/8x) + Peter Kovesi O(1) sliding-window box blur, dual octave (core + bloom), direct scanline bilinear reconstruction, zero heap allocations.
 
 ## 2. Craft Chromatic (org.craftplugins.chromatic)
-- **Target Engine:** EffectCraft WebAssembly Plugin API v1, category "by qwertyonek".
-- Modes: Radial (optical lens dispersion, quadratic barrel falloff) and Linear (angle-based RGB split). Subpixel bilinear sampling with edge clamp; 512-entry distance-squared LUT removing sqrt/powf from the inner loop; thread_local source scratch, in-place render.
+Radial (lens dispersion) and linear (prism) RGB split; 512-entry distance-squared LUT; subpixel bilinear with edge clamp; thread_local scratch, in-place.
 
 ## 3. Craft Halftone & Dither (org.craftplugins.halftone) — v1.0.1
-- Modes: Bayer 8x8 / Bayer 4x4 ordered dither, CMYK newspaper halftone, Mono halftone circles; palettes RGB / B&W / GameBoy / CGA / Cyberpunk.
-- **Fixed bug (#1, v1.0.1):** screen-space cell wrap used `%`, which in Rust keeps the dividend sign, so every negative rotated coordinate was sampled one cell off — diagonal seam where mono halftone went black and CMYK blew out to white. Both mono and CMYK paths now use `rem_euclid(cell_size)`.
-- Regression test `tests::halftone_screen_angle_is_continuous`: flat grey 96x96, angles 0/15/45/75/135/200, asserts both halves non-blank and |left-right| < 2% mean luminance across the y=x diagonal.
-- Measured CMYK 45deg left/right: 100%/77.3% (broken) vs 40.9%/40.8% (fixed).
+Bayer 8x8/4x4, CMYK newspaper halftone, mono circles; palettes RGB/B&W/GameBoy/CGA/Cyberpunk. Bug #1 fixed: cell wrap used `%` (keeps dividend sign) -> diagonal seam; now `rem_euclid`. Regression test `halftone_screen_angle_is_continuous`.
 
-## Plugin API v1 hard limits (for answering user requests)
-- `ec_render` receives ONE frame (premultiplied RGBA f32, in place) plus `time` and `scale`. No host transform curves, no neighbouring frames, no layer/glyph/range data.
-- Consequence: per-character text animation is impossible inside a plugin (belongs to upstream text animators); Sapphire `S_BlurMoCurves` is only approximable with keyframed arc-blur params.
+## 4. Craft Motion Blur Curves (org.craftplugins.motionblurcurves) — new in v1.1.0
+Arc accumulation blur: length, direction, curvature (total heading change = curvature*180 deg), taper, quality 8/16/32/64, falloff linear/gaussian/center, shutter, wrap mirror/clamp/transparent, jitter. Kernel: offsets+weights precomputed once per frame; gather with bilinear taps. Tap budget 1.6M per frame; above it accumulate on a downscaled copy (factor up to 4) and bilinear upsample. 1080p default went 335 ms -> 41 ms at wasm level. Tests: weight normalisation, centroid stability (straight exact, arc bounded), curvature bends (vertical variance 0 vs 22), passthrough bounds, 4K budget.
 
-## Open GitHub issues (all three replied 2026-11-14)
-- #1 halftone screen-angle seam -> fixed in 1.0.1, dist rebuilt, CI green.
-- #2 text animation -> explained API limits, offered reveal/typewriter-style pixel effect.
-- #3 S_BlurMoCurves alternative -> offered `craft-motion-blur-curves` param spec, awaiting reply.
+## 5. Craft Reveal (org.craftplugins.reveal) — new in v1.1.0
+Animated reveal/wipe: reveal %, direction (L>R/R>L/T>B/B>T/diagonal/radial), edge softness, build style smooth/lines/blocks, step size, cursor + width + glow, invert. Mask multiplies premultiplied RGBA. Tests: identity at 100%, hidden at 0%, monotone coverage, edge selection per direction, stepped bands, invert complement, soft-edge partials.
+
+## Plugin API v1 hard limits (answers to user requests)
+One frame + time + scale only: no glyphs/ranges (per-character text animation impossible), no host transform curves (S_BlurMoCurves only approximable), no previous frames, no other layers/masks.
+
+## GitHub issues (answered 2026-11-14)
+- #1 halftone seam -> fixed 1.0.1, release v1.0.1.
+- #2 text animation -> explained limits, shipped craft-reveal, comment added.
+- #3 S_BlurMoCurves -> shipped craft-motion-blur-curves, comment added, awaiting feedback.
 
 ## Repo housekeeping
-- `scripts/Craft Composer.jsx` (677 lines, ExtendScript panel for After Effects, unrelated to the WASM suite) is untracked — decide whether to track or drop.
+`scripts/Craft Composer.jsx` (AE ExtendScript panel, unrelated to EffectCraft) deliberately left untracked.
